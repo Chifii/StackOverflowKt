@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "198713583282",
+    "project_id": "stackoverflowkt",
+    "storage_bucket": "stackoverflowkt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198713583282:android:8928c0cbff442cc62b0bab",
+        "android_client_info": {
+          "package_name": "chifinaldo.stackoverflowkt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "198713583282-1a9p0c45ar0pk8o9jg90b4c96r1ri4eu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "chifinaldo.stackoverflowkt",
+            "certificate_hash": "d3d791612994830ed060313cdcfc753f7356d609"
+          }
+        },
+        {
+          "client_id": "198713583282-vvrgdcvdebkdam64s0igis4q9a3aq9b9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_aZYr_DRYx8OIK7noKpZoNorNMmti3ak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "198713583282-vvrgdcvdebkdam64s0igis4q9a3aq9b9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

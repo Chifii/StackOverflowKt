@@ -52,12 +52,12 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitversion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitversion"
 
-    implementation "androidx.activity:activity-ktx:1.5.1"
+    implementation "androidx.activity:activity-ktx:$activityKtxVersion"
 
     // Image Support
-    implementation 'com.github.bumptech.glide:glide:4.14.1'
-    implementation 'androidx.core:core-ktx:+'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.1'
+    implementation "com.github.bumptech.glide:glide:4.14.1"
+    implementation "androidx.core:core-ktx:$kotlinCoreVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:4.14.1"
 
     // Test
     testImplementation "junit:junit:$junitVersion"

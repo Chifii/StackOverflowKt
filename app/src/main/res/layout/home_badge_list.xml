@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Home_Badge_List_Constraint_Layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout_bg"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:id="@+id/Badge_Name_Text_View"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="2dp"
+            android:allowUndo="false"
+            android:autoSizeTextType="uniform"
+            android:textAlignment="viewStart"
+            android:textColor="#ffffff"
+            app:layout_constraintBottom_toBottomOf="@+id/Badge_Image_View"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/Badge_Image_View"
+            app:layout_constraintTop_toTopOf="@+id/Badge_Image_View"
+            tools:text="Android Studio" />
+
+        <TextView
+            android:id="@+id/Badge_Image_View"
+            android:background="@drawable/badge_point_gold"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:contentDescription="@string/badge_contentDescription"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/editbox_dropdown_light_frame" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">StackOverflowKt</string>
+    <string name="app_name" translatable="false">StackOverflowKt</string>
+    <string name="badge_contentDescription" translatable="false">Badge icon</string>
 </resources>

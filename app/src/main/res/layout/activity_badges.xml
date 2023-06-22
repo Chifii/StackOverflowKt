@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.presentation.view.HomeActivity">
+    tools:context=".badges.presentation.view.BadgesActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -24,7 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        tools:listitem="@layout/home_badge_list" />
+        tools:listitem="@layout/badge_list" />
 
     <TextView
         android:id="@+id/Section_Title_Text_View"

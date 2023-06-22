@@ -55,10 +55,19 @@ dependencies {
 
     implementation "androidx.activity:activity-ktx:$activityKtxVersion"
 
+    // Card View
+    implementation "androidx.cardview:cardview:1.0.0"
+
+    // Lottie File
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
     // Image Support
     implementation "androidx.core:core-ktx:$kotlinCoreVersion"
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
+
+    // Leak Canary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
 
     // Test
     testImplementation "junit:junit:$junitVersion"

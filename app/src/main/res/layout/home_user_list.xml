@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="5dp"
+    android:elevation="20dp"
+    app:cardCornerRadius="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/home_user_list_constraint_layout"
+        style="@style/Widget.MaterialComponents.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:elevation="2dp">
+
+        <ImageView
+            android:id="@+id/profile_picture"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/users_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:textAlignment="viewStart"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/profile_picture"
+            app:layout_constraintTop_toTopOf="@+id/profile_picture"
+            tools:text="Esteban Ferreyra" />
+
+        <TextView
+            android:id="@+id/location_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:text="Badge Count:"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="@+id/users_name"
+            app:layout_constraintTop_toBottomOf="@+id/users_name" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/location_text_view"
+            app:layout_constraintEnd_toEndOf="@+id/users_name"
+            app:layout_constraintStart_toEndOf="@+id/location_text_view"
+            app:layout_constraintTop_toTopOf="@+id/location_text_view">
+
+            <TextView
+                android:id="@+id/bronze_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1" />
+
+            <TextView
+                android:id="@+id/silver_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="@+id/bronze_count"
+                app:layout_constraintStart_toEndOf="@+id/bronze_badge"
+                app:layout_constraintTop_toTopOf="@+id/bronze_count"
+                app:layout_constraintVertical_bias="0.4"
+                tools:text="1" />
+
+            <TextView
+                android:id="@+id/gold_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="@+id/silver_count"
+                app:layout_constraintStart_toEndOf="@+id/silver_badge"
+                app:layout_constraintTop_toTopOf="@+id/silver_count"
+                app:layout_constraintVertical_bias="0.4"
+                tools:text="1" />
+
+            <ImageView
+                android:id="@+id/bronze_badge"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/bronze_count"
+                app:layout_constraintStart_toEndOf="@id/bronze_count"
+                app:layout_constraintTop_toTopOf="@+id/bronze_count"
+                app:srcCompat="@drawable/badge_point_bronze" />
+
+            <ImageView
+                android:id="@+id/silver_badge"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/bronze_badge"
+                app:layout_constraintStart_toEndOf="@+id/silver_count"
+                app:layout_constraintTop_toTopOf="@+id/bronze_badge"
+                app:srcCompat="@drawable/badge_point_silver" />
+
+            <ImageView
+                android:id="@+id/gold_badge"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/silver_badge"
+                app:layout_constraintStart_toEndOf="@+id/gold_count"
+                app:layout_constraintTop_toTopOf="@+id/silver_badge"
+                app:srcCompat="@drawable/badge_point_gold" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/reputation_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Reputation:"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="@+id/location_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/location_text_view" />
+
+        <TextView
+            android:id="@+id/reputationCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="@+id/reputation_text_view"
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+            app:layout_constraintTop_toTopOf="@+id/reputation_text_view"
+            tools:text="40000" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

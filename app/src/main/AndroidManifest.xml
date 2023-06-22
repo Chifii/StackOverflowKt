@@ -10,13 +10,16 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.StackOverflowKt"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".home.presentation.view.HomeActivity"
-            android:exported="true">
+            android:name=".badges.presentation.view.BadgesActivity"
+            android:exported="true"
+            android:label="Login Activity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -24,11 +27,20 @@
 
         <activity
             android:name=".login.presentation.view.LoginActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
 
+        <activity
+            android:name=".home.presentation.view.HomeActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

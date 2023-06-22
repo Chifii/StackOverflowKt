@@ -4,13 +4,13 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import chifinaldo.stackoverflowkt.base.domain.domain.Result
+import chifinaldo.stackoverflowkt.home.domain.models.UserList
 import chifinaldo.stackoverflowkt.home.domain.service.HomeRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import chifinaldo.stackoverflowkt.base.domain.domain.Result
-import chifinaldo.stackoverflowkt.home.domain.models.UserList
 
 class HomeViewModel : ViewModel() {
     private val repository: HomeRepository = HomeRepository()

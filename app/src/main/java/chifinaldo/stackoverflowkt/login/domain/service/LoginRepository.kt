@@ -6,8 +6,6 @@ import chifinaldo.stackoverflowkt.login.domain.models.AccessTokenResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
-import retrofit2.Response
-import retrofit2.http.Url
 
 class LoginRepository : BaseRepository<LoginService>(LoginService::class.java) {
     suspend fun launchLogin(): Result<String> {

@@ -1,9 +1,9 @@
 package chifinaldo.stackoverflowkt.badges.domain.service
 
 import android.util.Log
-import chifinaldo.stackoverflowkt.base.domain.service.BaseRepository
-import chifinaldo.stackoverflowkt.base.domain.domain.Result
 import chifinaldo.stackoverflowkt.badges.domain.models.BadgesList
+import chifinaldo.stackoverflowkt.base.domain.domain.Result
+import chifinaldo.stackoverflowkt.base.domain.service.BaseRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException

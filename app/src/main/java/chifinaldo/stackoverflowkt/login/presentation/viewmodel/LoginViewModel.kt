@@ -4,13 +4,12 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import chifinaldo.stackoverflowkt.login.domain.service.LoginRepository
 import chifinaldo.stackoverflowkt.base.domain.domain.Result
+import chifinaldo.stackoverflowkt.login.domain.service.LoginRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import retrofit2.http.Url
 
 class LoginViewModel : ViewModel() {
 

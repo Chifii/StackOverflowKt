@@ -10,9 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import chifinaldo.stackoverflowkt.R
-import chifinaldo.stackoverflowkt.databinding.ActivityBadgesBinding
 import chifinaldo.stackoverflowkt.badges.domain.models.BadgesList
 import chifinaldo.stackoverflowkt.badges.presentation.viewmodel.BadgesViewModel
+import chifinaldo.stackoverflowkt.databinding.ActivityBadgesBinding
 
 class BadgesActivity : AppCompatActivity() {
 

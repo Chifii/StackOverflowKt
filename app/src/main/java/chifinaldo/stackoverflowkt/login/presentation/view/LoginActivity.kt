@@ -9,8 +9,8 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import chifinaldo.stackoverflowkt.databinding.ActivityLoginBinding
 import chifinaldo.stackoverflowkt.badges.presentation.view.BadgesActivity
+import chifinaldo.stackoverflowkt.databinding.ActivityLoginBinding
 import chifinaldo.stackoverflowkt.login.presentation.viewmodel.LoginViewModel
 
 class LoginActivity : AppCompatActivity() {

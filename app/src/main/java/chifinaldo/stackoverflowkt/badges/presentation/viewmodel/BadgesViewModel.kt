@@ -4,10 +4,10 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import chifinaldo.stackoverflowkt.badges.domain.service.BadgesRepository
-import chifinaldo.stackoverflowkt.base.domain.domain.Result
 import chifinaldo.stackoverflowkt.badges.domain.models.BadgesList
 import chifinaldo.stackoverflowkt.badges.domain.models.FilterManager
+import chifinaldo.stackoverflowkt.badges.domain.service.BadgesRepository
+import chifinaldo.stackoverflowkt.base.domain.domain.Result
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

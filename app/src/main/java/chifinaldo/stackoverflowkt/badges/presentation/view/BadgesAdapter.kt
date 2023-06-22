@@ -1,17 +1,15 @@
-package chifinaldo.stackoverflowkt.home.presentation.view
+package chifinaldo.stackoverflowkt.badges.presentation.view
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import chifinaldo.stackoverflowkt.R
-import chifinaldo.stackoverflowkt.databinding.HomeBadgeListBinding
-import chifinaldo.stackoverflowkt.home.domain.models.Badge
-import chifinaldo.stackoverflowkt.home.domain.models.BadgesList
+import chifinaldo.stackoverflowkt.badges.domain.models.Badge
+import chifinaldo.stackoverflowkt.databinding.BadgeListBinding
 
-class HomeAdapter(private val badgesList: List<Badge>) :
-    RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
+class BadgesAdapter(private val badgesList: List<Badge>) :
+    RecyclerView.Adapter<BadgesAdapter.ViewHolder>() {
 
     private lateinit var mListener: onItemClickListener
 
@@ -21,7 +19,7 @@ class HomeAdapter(private val badgesList: List<Badge>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
-            HomeBadgeListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            BadgeListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding, mListener)
     }
 
@@ -30,14 +28,14 @@ class HomeAdapter(private val badgesList: List<Badge>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val regionsList = badgesList[position]
-        holder.bind(regionsList)
+        val badgeList = badgesList[position]
+        holder.bind(badgeList)
     }
 
     override fun getItemCount(): Int = badgesList.size
 
     class ViewHolder(
-        private val itemViewBinding: HomeBadgeListBinding,
+        private val itemViewBinding: BadgeListBinding,
         listener: onItemClickListener
     ) :
         RecyclerView.ViewHolder(itemViewBinding.root) {
@@ -58,6 +56,7 @@ class HomeAdapter(private val badgesList: List<Badge>) :
                             R.drawable.badge_point_gold
                         )
                     }
+
                     SILVER -> BadgeImageView.background = ContextCompat.getDrawable(
                         itemViewBinding.root.context,
                         R.drawable.badge_point_silver

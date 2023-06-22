@@ -1,38 +1,42 @@
-package chifinaldo.stackoverflowkt.home.presentation.view
+package chifinaldo.stackoverflowkt.badges.presentation.view
 
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import chifinaldo.stackoverflowkt.R
-import chifinaldo.stackoverflowkt.databinding.ActivityHomeBinding
-import chifinaldo.stackoverflowkt.home.domain.models.BadgesList
-import chifinaldo.stackoverflowkt.home.presentation.viewmodel.HomeViewModel
+import chifinaldo.stackoverflowkt.databinding.ActivityBadgesBinding
+import chifinaldo.stackoverflowkt.badges.domain.models.BadgesList
+import chifinaldo.stackoverflowkt.badges.presentation.viewmodel.BadgesViewModel
 
-class HomeActivity : AppCompatActivity() {
+class BadgesActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityHomeBinding
-    private val viewModel: HomeViewModel by viewModels()
+    private lateinit var binding: ActivityBadgesBinding
+    private val viewModel: BadgesViewModel by viewModels()
 
     private lateinit var floatingOpen: Animation
     private lateinit var floatingClose: Animation
     private lateinit var floatingForward: Animation
     private lateinit var floatingBackward: Animation
 
+    private var order = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityHomeBinding.inflate(layoutInflater)
+        binding = ActivityBadgesBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
         viewModel.setup()
         initObservables()
         setupAnimations()
+        setupButtons()
 
         binding.HomeFloatingActionButton.setOnClickListener {
             viewModel.configButtons()
@@ -40,23 +44,24 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun initObservables() = with(viewModel) {
-        badgesList.observe(this@HomeActivity) { setBadges(it) }
-        showButtons.observe(this@HomeActivity) { configButtons(it) }
+        badgesList.observe(this@BadgesActivity) { setBadges(it) }
+        showButtons.observe(this@BadgesActivity) { configButtons(it) }
+        showErrorToast.observe(this@BadgesActivity) { showToast() }
     }
 
     private fun setBadges(badgesList: BadgesList) {
         val layoutManager: RecyclerView.LayoutManager =
             GridLayoutManager(this, 2, RecyclerView.VERTICAL, false)
-        val homeRVAdapter = HomeAdapter(badgesList.items)
+        val homeRVAdapter = BadgesAdapter(badgesList.items)
         binding.apply {
             HomeRecyclerView.layoutManager = layoutManager
             HomeRecyclerView.adapter = homeRVAdapter
         }
 
         homeRVAdapter.setOnClickListener(
-            object : HomeAdapter.onItemClickListener {
+            object : BadgesAdapter.onItemClickListener {
                 override fun onItemClick(position: Int) {
-
+                    // For now it's not necessary
                 }
             }
         )
@@ -75,7 +80,6 @@ class HomeActivity : AppCompatActivity() {
 
                 RankFilterButton.visibility = View.VISIBLE
                 RankFilterButton.startAnimation(floatingOpen)
-
             }
         } else {
             binding.apply {
@@ -93,6 +97,24 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupButtons() {
+        binding.apply {
+            RankFilterButton.setOnClickListener {
+                viewModel.setSortFilter(RANK)
+            }
+            NameFilterButton.setOnClickListener {
+                viewModel.setSortFilter(NAME)
+            }
+            AscFilterButton.setOnClickListener {
+                viewModel.setOrderFilter(order).also { order = !order }
+            }
+        }
+    }
+
+    private fun showToast() {
+        Toast.makeText(this, "Wow, you're going too fast. Take a rest", Toast.LENGTH_SHORT).show()
+    }
+
     private fun setupAnimations() {
         floatingOpen = AnimationUtils.loadAnimation(this, R.anim.floating_open)
         floatingClose = AnimationUtils.loadAnimation(this, R.anim.floating_close)
@@ -100,4 +122,9 @@ class HomeActivity : AppCompatActivity() {
         floatingBackward = AnimationUtils.loadAnimation(this, R.anim.floating_backward)
     }
 
+    companion object {
+        private const val TAG = "HomeActivity"
+        private const val RANK = "rank"
+        private const val NAME = "name"
+    }
 }

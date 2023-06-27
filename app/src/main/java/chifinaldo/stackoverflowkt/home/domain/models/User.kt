@@ -1,6 +1,5 @@
 package chifinaldo.stackoverflowkt.home.domain.models
 
-import chifinaldo.stackoverflowkt.badges.domain.models.BadgeType
 import com.google.gson.annotations.SerializedName
 
 data class User(

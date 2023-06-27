@@ -1,6 +1,5 @@
 package chifinaldo.stackoverflowkt.login.presentation.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -28,11 +27,9 @@ class LoginViewModel : ViewModel() {
             when (val result = repository.launchLogin()) {
                 is Result.Success -> {
                     urlMLD.value = result.data
-                    Log.d("Servicio:", "$result")
                 }
 
                 is Result.Error -> {
-                    Log.d("Servicio:", "$result")
                 }
             }
         }
@@ -43,12 +40,10 @@ class LoginViewModel : ViewModel() {
         scopeRecovery.launch {
             when (val result = repository.getAccessToken(code)) {
                 is Result.Success -> {
-                    Log.d("Servicio:", "$result")
                     redirectToHomeMLD.value = result.data.accessToken
                 }
 
                 is Result.Error -> {
-                    Log.d("Servicio:", "$result")
                 }
             }
         }

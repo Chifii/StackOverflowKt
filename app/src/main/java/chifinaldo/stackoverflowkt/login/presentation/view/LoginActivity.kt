@@ -9,9 +9,9 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import chifinaldo.stackoverflowkt.badges.presentation.view.BadgesActivity
 import chifinaldo.stackoverflowkt.databinding.ActivityLoginBinding
 import chifinaldo.stackoverflowkt.login.presentation.viewmodel.LoginViewModel
+import chifinaldo.stackoverflowkt.profile.presentation.view.ProfileActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -63,14 +63,10 @@ class LoginActivity : AppCompatActivity() {
             @Deprecated("Deprecated in Java")
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
                 if (url != null && url.contains("chifinaldo.stackoverflowkt")) {
-                    val code = extractAccessToken(url.toString())
+                    val code = Uri.parse(url).getQueryParameter("code")
 
-                    val code2 = Uri.parse(url).getQueryParameter("code")
-
-                    if (code2 != null) {
-                        viewModel.getAccessToken(code2)
-                    } else {
-                        Log.e("LoginActivity", "Error al obtener el código de autorización")
+                    if (code != null) {
+                        viewModel.getAccessToken(code)
                     }
                     return true
                 }
@@ -97,7 +93,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun redirectToHome(accessToken: String) {
-        val intent = Intent(this@LoginActivity, BadgesActivity::class.java)
+        val intent = Intent(this@LoginActivity, ProfileActivity::class.java)
         intent.putExtra("accessToken", accessToken)
 
         startActivity(intent)

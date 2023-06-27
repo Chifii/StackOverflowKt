@@ -23,6 +23,7 @@
             android:background="@drawable/rounded_button"
             android:clickable="true"
             android:elevation="10dp"
+            android:queryHint="@string/search_hint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="14dp"
-            android:text="Parece que todavia no buscas a nadie. Adelante! Busca a alguien!"
+            android:text="@string/empty_search_text"
             android:textAlignment="center"
             android:textColor="#808080"
             android:textSize="18sp"
@@ -72,13 +73,26 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="60dp"
             android:elevation="10dp"
-            android:text="Reintentar"
+            android:text="@string/retry"
             android:textColor="@color/black"
             android:textSize="18sp"
-
             app:layout_constraintBottom_toBottomOf="@+id/lottie_animation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/searching_text_view"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/searching"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/try_again_button"
+            app:layout_constraintEnd_toEndOf="@+id/try_again_button"
+            app:layout_constraintStart_toStartOf="@+id/try_again_button" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottie_animation"

@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="Account ID:"
+            android:text="@string/account_id"
             app:layout_constraintStart_toStartOf="@+id/name_text_view"
             app:layout_constraintTop_toBottomOf="@+id/name_text_view" />
 
@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
-            android:text="User Id: "
+            android:text="@string/user_id"
             app:layout_constraintBottom_toBottomOf="@+id/account_id"
             app:layout_constraintEnd_toStartOf="@+id/user_id_number"
             app:layout_constraintTop_toTopOf="@+id/account_id"
@@ -95,6 +95,58 @@
             tools:itemCount="3"
             tools:listitem="@layout/badge_list" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/Bronze_Filter_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/white"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_filter"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/Profile_Floating_Action_Button"
+            app:layout_constraintEnd_toEndOf="@+id/Profile_Floating_Action_Button" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/Silver_Filter_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/white"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_sort_by_alpha"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/Bronze_Filter_Button"
+            app:layout_constraintEnd_toEndOf="@+id/Bronze_Filter_Button" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/Gold_Filter_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/white"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_star"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/Silver_Filter_Button"
+            app:layout_constraintEnd_toEndOf="@+id/Silver_Filter_Button">
+
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/Profile_Floating_Action_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/white"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -115,7 +167,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="60dp"
             android:elevation="10dp"
-            android:text="Reintentar"
+            android:text="@string/retry"
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/lottie_animation"
@@ -127,7 +179,7 @@
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="No podemos recuperar la informacion del perfil."
+            android:text="@string/error_search_user"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="18sp"

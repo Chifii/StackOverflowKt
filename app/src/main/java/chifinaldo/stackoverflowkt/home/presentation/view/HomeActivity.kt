@@ -32,11 +32,11 @@ class HomeActivity : AppCompatActivity() {
 
         binding.profileSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                query?.let {
+                return query?.let {
                     if (it.isEmpty() || it.length < 3) {
                         Toast.makeText(
                             this@HomeActivity,
-                            "Please enter 3 or more characters",
+                            R.string.error_bad_query,
                             Toast.LENGTH_SHORT
                         ).show()
                         return false
@@ -46,8 +46,7 @@ class HomeActivity : AppCompatActivity() {
                         hideKeyboard()
                         return true
                     }
-                }
-                return false
+                } ?: false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
@@ -71,7 +70,7 @@ class HomeActivity : AppCompatActivity() {
     private fun drawUsers(usersList: UserList) {
         if (usersList.items.isEmpty()) {
             showErrorView(true)
-            Toast.makeText(this, "No users found", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.error_no_user_found, Toast.LENGTH_SHORT).show()
         } else {
             val layoutManager: RecyclerView.LayoutManager =
                 LinearLayoutManager(this, RecyclerView.VERTICAL, false)
@@ -88,14 +87,8 @@ class HomeActivity : AppCompatActivity() {
 
             homeRVAdapter.setOnClickListener(object : HomeAdapter.onItemClickListener {
                 override fun onItemClick(position: Int) {
-                    Toast.makeText(
-                        this@HomeActivity,
-                        "Clicked on ${usersList.items[position].accountId}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-
                     val intent = Intent(this@HomeActivity, ProfileActivity::class.java)
-                    intent.putExtra("accountId", usersList.items[position].accountId)
+                    intent.putExtra("userId", usersList.items[position].userId)
                     startActivity(intent)
                 }
             })
@@ -114,6 +107,7 @@ class HomeActivity : AppCompatActivity() {
                 lottieAnimation.playAnimation()
                 animationConstraintLayout.visibility = View.VISIBLE
                 tryAgainButton.visibility = View.GONE
+                searchingTextView.visibility = View.VISIBLE
             } else {
                 animationConstraintLayout.visibility = View.GONE
                 tryAgainButton.visibility = View.GONE
@@ -124,6 +118,7 @@ class HomeActivity : AppCompatActivity() {
     private fun showErrorView(showError: Boolean) {
         binding.apply {
             if (showError) {
+                searchingTextView.visibility = View.INVISIBLE
                 lottieAnimation.setAnimation(R.raw.error_animation)
                 lottieAnimation.playAnimation()
                 animationConstraintLayout.visibility = View.VISIBLE

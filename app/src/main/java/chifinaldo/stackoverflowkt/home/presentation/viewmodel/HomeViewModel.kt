@@ -1,6 +1,5 @@
 package chifinaldo.stackoverflowkt.home.presentation.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,8 +11,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(
     private val repository: HomeRepository = HomeRepository()
+) : ViewModel() {
     private val scopeRecovery by lazy { CoroutineScope(Job() + Dispatchers.Main) }
 
     private val usersListMDL: MutableLiveData<UserList> = MutableLiveData()
@@ -28,14 +28,12 @@ class HomeViewModel : ViewModel() {
             return
         } else {
             scopeRecovery.launch {
-                when (val result = repository.searchUser(userName)) {
+                when (val result = repository.searchUser(userName = userName)) {
                     is Result.Success -> {
-                        Log.d("Home ViewModel:", "$result")
                         usersListMDL.value = result.data
                     }
 
                     is Result.Error -> {
-                        Log.d("Home ViewModel:", "$result")
                         errorMLD.value = true
                     }
                 }

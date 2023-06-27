@@ -1,4 +1,4 @@
-package chifinaldo.stackoverflowkt.badges.domain.models
+package chifinaldo.stackoverflowkt.home.domain.models
 
 import com.google.gson.annotations.SerializedName
 

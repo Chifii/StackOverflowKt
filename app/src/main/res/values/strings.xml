@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name" translatable="false">StackOverflowKt</string>
     <string name="badge_contentDescription" translatable="false">Badge icon</string>
+    <string name="empty_search_text" translatable="false">Parece que todavia no buscas a nadie. Adelante! Busca a alguien!</string>
+    <string name="error_message_no_internet" translatable="false">No hay conexion a internet</string>
+    <string name="error_search_user" translatable="false">No podemos recuperar la informacion del perfil.</string>
+    <string name="error_no_user_found" translatable="false">No se encontro el usuario</string>
+    <string name="error_bad_query" translatable="false">Por favor ingresa 3 o mas caracteres</string>
+    <string name="retry" translatable="false">Reintentar</string>
+    <string name="search_hint" translatable="false">Busca a alguien</string>
+    <string name="searching" translatable="false">Buscando...</string>
+    <string name="badge_count" translatable="false">Badge Count:</string>
+    <string name="reputation" translatable="false">Reputation:</string>
+    <string name="user_id" translatable="false">User Id: </string>
+    <string name="account_id" translatable="false">Account ID: </string>
 </resources>

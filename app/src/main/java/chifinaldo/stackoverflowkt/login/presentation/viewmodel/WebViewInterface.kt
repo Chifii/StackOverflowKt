@@ -1,7 +1,6 @@
 package chifinaldo.stackoverflowkt.login.presentation.viewmodel
 
 import android.content.Context
-import android.util.Log
 import chifinaldo.stackoverflowkt.base.domain.domain.Result
 import chifinaldo.stackoverflowkt.base.domain.service.BaseRepository
 import chifinaldo.stackoverflowkt.login.domain.service.LoginRepository
@@ -22,11 +21,9 @@ class WebViewInterface(private val mContext: Context) :
         scopeRecovery.launch {
             when (val result = repository.launchLogin()) {
                 is Result.Success -> {
-                    Log.d("Servicio:", "$result")
                 }
 
                 is Result.Error -> {
-                    Log.d("Servicio:", "$result")
                 }
             }
         }

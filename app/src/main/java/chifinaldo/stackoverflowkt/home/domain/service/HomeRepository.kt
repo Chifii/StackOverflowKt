@@ -9,12 +9,10 @@ import retrofit2.HttpException
 
 class HomeRepository : BaseRepository<HomeService>(HomeService::class.java) {
 
-    suspend fun searchUser(userName: String?): Result<UserList> {
+    suspend fun searchUser(userName: String): Result<UserList> {
         return withContext(Dispatchers.IO) {
             try {
-                val data = service.searchUser(
-                    inName = userName ?: ""
-                )
+                val data = service.searchUser(inName = userName)
                 Result.Success(data)
             } catch (exception: HttpException) {
                 Result.Error(exception)

@@ -8,7 +8,6 @@ interface HomeService {
     @GET("2.3/users")
     suspend fun searchUser(
         @Query("order") order: String = "desc",
-        @Query("max") max: Int = 100,
         @Query("sort") sort: String = "name",
         @Query("inname") inName: String,
         @Query("site") site: String = "stackoverflow",

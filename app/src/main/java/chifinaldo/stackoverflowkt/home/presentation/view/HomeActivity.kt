@@ -1,5 +1,6 @@
 package chifinaldo.stackoverflowkt.home.presentation.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -13,6 +14,7 @@ import chifinaldo.stackoverflowkt.R
 import chifinaldo.stackoverflowkt.databinding.ActivityHomeBinding
 import chifinaldo.stackoverflowkt.home.domain.models.UserList
 import chifinaldo.stackoverflowkt.home.presentation.viewmodel.HomeViewModel
+import chifinaldo.stackoverflowkt.profile.presentation.view.ProfileActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -30,10 +32,22 @@ class HomeActivity : AppCompatActivity() {
 
         binding.profileSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                showLoadingView(true)
-                viewModel.searchUser(query)
-                hideKeyboard()
-                return true
+                query?.let {
+                    if (it.isEmpty() || it.length < 3) {
+                        Toast.makeText(
+                            this@HomeActivity,
+                            "Please enter 3 or more characters",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return false
+                    } else {
+                        showLoadingView(true)
+                        viewModel.searchUser(query)
+                        hideKeyboard()
+                        return true
+                    }
+                }
+                return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
@@ -51,6 +65,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun initObservables() = with(viewModel) {
         usersList.observe(this@HomeActivity) { drawUsers(it) }
+        error.observe(this@HomeActivity) { showErrorView(it) }
     }
 
     private fun drawUsers(usersList: UserList) {
@@ -75,13 +90,13 @@ class HomeActivity : AppCompatActivity() {
                 override fun onItemClick(position: Int) {
                     Toast.makeText(
                         this@HomeActivity,
-                        "Clicked on ${usersList.items[position].userId}",
+                        "Clicked on ${usersList.items[position].accountId}",
                         Toast.LENGTH_SHORT
                     ).show()
 
-                    /*val intent = Intent(this@HomeActivity, ProfileActivity::class.java)
-                    intent.putExtra("user_id", usersList.items[position].userId)
-                    startActivity(intent)*/
+                    val intent = Intent(this@HomeActivity, ProfileActivity::class.java)
+                    intent.putExtra("accountId", usersList.items[position].accountId)
+                    startActivity(intent)
                 }
             })
         }
@@ -95,6 +110,7 @@ class HomeActivity : AppCompatActivity() {
     private fun showLoadingView(showLoading: Boolean) {
         binding.apply {
             if (showLoading) {
+                lottieAnimation.setAnimation(R.raw.loading_animation)
                 lottieAnimation.playAnimation()
                 animationConstraintLayout.visibility = View.VISIBLE
                 tryAgainButton.visibility = View.GONE

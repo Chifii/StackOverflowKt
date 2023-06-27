@@ -19,16 +19,25 @@ class HomeViewModel : ViewModel() {
     private val usersListMDL: MutableLiveData<UserList> = MutableLiveData()
     val usersList get() = usersListMDL as LiveData<UserList>
 
-    fun searchUser(userName: String?) {
-        scopeRecovery.launch {
-            when (val result = repository.searchUser(userName)) {
-                is Result.Success -> {
-                    Log.d("Home ViewModel:", "$result")
-                    usersListMDL.value = result.data
-                }
+    private val errorMLD = MutableLiveData<Boolean>()
+    val error get() = errorMLD as LiveData<Boolean>
 
-                is Result.Error -> {
-                    Log.d("Home ViewModel:", "$result")
+    fun searchUser(userName: String?) {
+        if (userName.isNullOrEmpty()) {
+            errorMLD.value = true
+            return
+        } else {
+            scopeRecovery.launch {
+                when (val result = repository.searchUser(userName)) {
+                    is Result.Success -> {
+                        Log.d("Home ViewModel:", "$result")
+                        usersListMDL.value = result.data
+                    }
+
+                    is Result.Error -> {
+                        Log.d("Home ViewModel:", "$result")
+                        errorMLD.value = true
+                    }
                 }
             }
         }

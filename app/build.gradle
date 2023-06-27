@@ -50,6 +50,7 @@ dependencies {
     // Rest client
     implementation "com.squareup.okhttp3:okhttp:$okHttpversion"
     implementation "com.squareup.retrofit2:retrofit:$retrofitversion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpversion"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitversion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitversion"
 

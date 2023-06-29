@@ -40,6 +40,14 @@ En conclusion, lamentablemente la app no tiene el login de stack overflow, pero 
 ## Apk
 Para poder descargar el APK tendran que acceder al siguiente [google drive](https://drive.google.com/drive/folders/1VqVOWWBy59ShPUO1MoxEeQ_nJRNYt8Z3?usp=drive_link)
 
+## To improve
+Basicamente los puntos a mejorar son:
+1. Test Unitarios: Mas completos y que funcionen bien (Estos fallan por un tema de configuracion de las corrutinas)
+2. Limpieza de codigo avanzada: Correr detekt detenidamente y solucionar todos los warnings leves que quedaron. Tambien revisar los metodos y cada clase para poder cumplir correctamente con el principio S.O.L.I.D
+3. Optimizacion de imagenes y llamadas a la A.P.I
+4. Optimizacion del uso de memoria
+5. Implementacion completa de R8 y Proguard para el release de la app de manera segura
+6. Implementacion de un CI/CD en Git
 
 ## License
 **Licencia ? Que es eso ?**
